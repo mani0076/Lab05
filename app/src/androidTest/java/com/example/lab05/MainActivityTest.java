@@ -44,13 +44,13 @@ import static org.hamcrest.Matchers.is;
         @Test
         public void mainActivityTest() {
             ViewInteraction appCompatEditText = onView(withId(R.id.editText));
-            appCompatEditText.perform(replaceText("12345"), closeSoftKeyboard());
+            appCompatEditText.perform(replaceText("Manisha"), closeSoftKeyboard());
 
             ViewInteraction materialButton = onView(withId(R.id.button));
             materialButton.perform(click());
 
             ViewInteraction textView = onView(withId(R.id.textView));
-            textView.check(matches(withText("You shall not pass!")));
+            textView.check(matches(withText("You shall pass!")));
         }
 
 
@@ -58,7 +58,7 @@ import static org.hamcrest.Matchers.is;
             // find the view
             ViewInteraction appCompatEditText = onView(withId(R.id.editText));
             // type in password123#$*
-            appCompatEditText.perform(replaceText("password123#$*"));
+            appCompatEditText.perform(replaceText("2345"));
 
             // find the button
             ViewInteraction materialButton = onView(withId(R.id.button));
@@ -68,7 +68,7 @@ import static org.hamcrest.Matchers.is;
             // find the text view
             ViewInteraction textView = onView(withId(R.id.textView));
             // check the text
-            textView.check(matches(withText("You shall not pass!")));
+            textView.check(matches(withText("You shall pass!")));
         }
 
 
@@ -76,7 +76,7 @@ import static org.hamcrest.Matchers.is;
             // find the view
             ViewInteraction appCompatEditText = onView(withId(R.id.editText));
             // type in password123#$*
-            appCompatEditText.perform(replaceText("KOMAL123#$*"));
+            appCompatEditText.perform(replaceText("Manisha2345"));
 
             // find the button
             ViewInteraction materialButton = onView(withId(R.id.button));
@@ -86,60 +86,55 @@ import static org.hamcrest.Matchers.is;
             // find the text view
             ViewInteraction textView = onView(withId(R.id.textView));
             // check the text
-            textView.check(matches(withText("You shall not pass!")));
+            textView.check(matches(withText("You shall pass!")));
         }
 
 
         public void testFindMissingDigit(){
-            // find the view
-            ViewInteraction appCompatEditText = onView(withId(R.id.editText));
-            // type in password123#$*
-            appCompatEditText.perform(replaceText("Komal$$"));
 
-            // find the button
+            ViewInteraction appCompatEditText = onView(withId(R.id.editText));
+
+            appCompatEditText.perform(replaceText("Mani"));
+
             ViewInteraction materialButton = onView(withId(R.id.button));
-            //click the button
+
             materialButton.perform(click());
 
-            // find the text view
+
             ViewInteraction textView = onView(withId(R.id.textView));
-            // check the text
-            textView.check(matches(withText("You shall not pass!")));
+
+            textView.check(matches(withText("You shall pass!")));
         }
 
 
         public void testFindMissingSpecial(){
-            // find the view
-            ViewInteraction appCompatEditText = onView(withId(R.id.editText));
-            // type in password123#$*
-            appCompatEditText.perform(replaceText("Komal0029"));
 
-            // find the button
+            ViewInteraction appCompatEditText = onView(withId(R.id.editText));
+
+            appCompatEditText.perform(replaceText("Mani1234"));
+
             ViewInteraction materialButton = onView(withId(R.id.button));
-            //click the button
+
             materialButton.perform(click());
 
-            // find the text view
             ViewInteraction textView = onView(withId(R.id.textView));
-            // check the text
-            textView.check(matches(withText("You shall not pass!")));
+
+            textView.check(matches(withText("You shall pass!")));
         }
 
 
         public void testFindMeetingAllRequirements(){
-            // find the view
-            ViewInteraction appCompatEditText = onView(withId(R.id.editText));
-            // type in password123#$*
-            appCompatEditText.perform(replaceText("Komal0029$$"));
 
-            // find the button
+            ViewInteraction appCompatEditText = onView(withId(R.id.editText));
+
+            appCompatEditText.perform(replaceText("Manisha2345"));
+
             ViewInteraction materialButton = onView(withId(R.id.button));
-            //click the button
+
             materialButton.perform(click());
 
-            // find the text view
             ViewInteraction textView = onView(withId(R.id.textView));
-            // check the text
+
             textView.check(matches(withText("Your password meets the requirements")));
         }
 
